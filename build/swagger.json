@@ -1,0 +1,472 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Test Swangger API Docs Xcidic",
+        "version": "1.0.0",
+        "title": "FatBellies"
+    },
+    "host": "aldi-fat-bellies.herokuapp.com",
+    "basePath": "/api/v1",
+    "tags": [
+        {
+            "name": "user"
+        }
+    ],
+    "schemes": [
+        "https",
+        "http"
+    ],
+    "paths": {
+        "/branch": {
+            "post": {
+                "tags": [
+                    "branch"
+                ],
+                "summary": "Create branch",
+                "description": "Create branch with detail meals",
+                "operationId": "createBranch",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created branch object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Branch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "branch"
+                ],
+                "summary": "Gell All Branchs",
+                "description": "",
+                "operationId": "getBranchAll",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "query",
+                        "description": "Filter By Name",
+                        "type": "string"
+                    },
+                    {
+                        "name": "latitude",
+                        "in": "query",
+                        "description": "Filter Latitude from location user",
+                        "type": "number"
+                    },
+                    {
+                        "name": "longitude",
+                        "in": "query",
+                        "description": "Filter Longitude from location user",
+                        "type": "number"
+                    },
+                    {
+                        "name": "distance",
+                        "in": "query",
+                        "description": "filter by the closest distance (KM)",
+                        "type": "number"
+                    },
+                    {
+                        "name": "price",
+                        "in": "query",
+                        "description": "Filter By Meal Price ",
+                        "type": "number"
+                    },
+                    {
+                        "name": "time",
+                        "in": "query",
+                        "description": "Filter By Time",
+                        "type": "string"
+                    },
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Filter By Time",
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/branch/{id}": {
+            "get": {
+                "tags": [
+                    "branch"
+                ],
+                "summary": "Get Branch by id",
+                "description": "",
+                "operationId": "getBranchById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Get Branch",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Branch"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "Branch not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "branch"
+                ],
+                "summary": "Updated Branch",
+                "description": "",
+                "operationId": "updateBranch",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update all field branch",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Updated user object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Branch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid user supplied"
+                    },
+                    "404": {
+                        "description": "Branch not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "branch"
+                ],
+                "summary": "Delete Branch",
+                "description": "",
+                "operationId": "deleteBranch",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The name that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid branch supplied"
+                    },
+                    "404": {
+                        "description": "Branch not found"
+                    }
+                }
+            }
+        },
+        "/meal": {
+            "post": {
+                "tags": [
+                    "meal"
+                ],
+                "summary": "Create meal",
+                "description": "Create meal with detail meals",
+                "operationId": "createmeal",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Created branch object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Meal"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "meal"
+                ],
+                "summary": "Get All Meals",
+                "description": "",
+                "operationId": "getMealAll",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        },
+        "/meal/{id}": {
+            "get": {
+                "tags": [
+                    "meal"
+                ],
+                "summary": "Get Meal by id",
+                "description": "",
+                "operationId": "getMealById",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Get Meal",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/Meal"
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username supplied"
+                    },
+                    "404": {
+                        "description": "Meal not found"
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "meal"
+                ],
+                "summary": "Updated meal",
+                "description": "",
+                "operationId": "updateMeal",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Update all field meal",
+                        "required": true,
+                        "type": "integer"
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "Updated meal object",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/Meal"
+                        }
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid user supplied"
+                    },
+                    "404": {
+                        "description": "meal not found"
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "meal"
+                ],
+                "summary": "Delete meal",
+                "description": "",
+                "operationId": "deletemeal",
+                "produces": [
+                    "application/xml",
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "The name that needs to be deleted",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "400": {
+                        "description": "Invalid branch supplied"
+                    },
+                    "404": {
+                        "description": "meal not found"
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "Branch": {
+            "type": "object",
+            "required": [
+                "name",
+                "latitude",
+                "longitude"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "name": {
+                    "type": "string",
+                    "example": "FatBellies A"
+                },
+                "latitude": {
+                    "type": "number",
+                    "example": -6.00008872
+                },
+                "longitude": {
+                    "type": "number",
+                    "example": 25.00008872
+                },
+                "openingHours": {
+                    "type": "string",
+                    "example": "09:00"
+                },
+                "meals": {
+                    "type": "array",
+                    "xml": {
+                        "name": "meals",
+                        "wrapped": true
+                    },
+                    "items": {
+                        "$ref": "#/definitions/Meal"
+                    }
+                }
+            },
+            "xml": {
+                "name": "Branch"
+            }
+        },
+        "Meal": {
+            "type": "object",
+            "required": [
+                "branchId",
+                "mealPlanName"
+            ],
+            "properties": {
+                "id": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "branchId": {
+                    "type": "integer",
+                    "format": "int64"
+                },
+                "mealPlanName": {
+                    "type": "string",
+                    "example": "Buffet A"
+                },
+                "maximumCapacity": {
+                    "type": "number",
+                    "example": -6.00008872
+                },
+                "price": {
+                    "type": "number",
+                    "example": 25.00008872
+                },
+                "day": {
+                    "type": "string",
+                    "example": "Monday"
+                },
+                "startTime": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "endTime": {
+                    "type": "string",
+                    "format": "date-time"
+                }
+            },
+            "xml": {
+                "name": "Meal"
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
